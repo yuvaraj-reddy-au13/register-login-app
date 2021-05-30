@@ -82,7 +82,7 @@ router.post("/login", function (req, res, next) {
 
 router.get("/profile", function (req, res, next) {
     console.log("profile");
-    User.findOne({ email: req.body.email }, function (err, data) {
+    User.findOne({ unique_id: req.session.userId }, function (err, data) {
         console.log("data");
         console.log(data);
         if (!data) {
